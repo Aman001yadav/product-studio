@@ -1,0 +1,275 @@
+{
+ "31": {
+  "_meta": {
+   "title": "Reference Image"
+  },
+  "inputs": {
+   "image": "#community_inputs/light-restoration-lora-clbWjoQV/blackwoman.jpg"
+  },
+  "class_type": "LoadImage"
+ },
+ "80": {
+  "_meta": {
+   "title": "Save Image"
+  },
+  "inputs": {
+   "images": [
+    "5200:12",
+    0
+   ],
+   "filename_prefix": "Qwen-Image"
+  },
+  "class_type": "SaveImage"
+ },
+ "5202": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "5203": {
+  "_meta": {
+   "title": "Inputs you need"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "5204": {
+  "_meta": {
+   "title": "Settings"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "5205": {
+  "_meta": {
+   "title": "Qwen Image Edit 2509"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "5206": {
+  "_meta": {
+   "title": "Learn"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "5100:1": {
+  "_meta": {
+   "title": "CFGNorm"
+  },
+  "inputs": {
+   "model": [
+    "5100:2",
+    0
+   ],
+   "pre_cfg": false,
+   "strength": 1
+  },
+  "class_type": "CFGNorm"
+ },
+ "5100:2": {
+  "_meta": {
+   "title": "ModelSamplingAuraFlow"
+  },
+  "inputs": {
+   "model": [
+    "5100:20",
+    0
+   ],
+   "shift": 3
+  },
+  "class_type": "ModelSamplingAuraFlow"
+ },
+ "5200:3": {
+  "_meta": {
+   "title": "TextEncodeQwenImageEditPlus"
+  },
+  "inputs": {
+   "vae": [
+    "5100:22",
+    0
+   ],
+   "clip": [
+    "5100:76",
+    0
+   ],
+   "image1": [
+    "5200:39",
+    0
+   ],
+   "prompt": ""
+  },
+  "class_type": "TextEncodeQwenImageEditPlus"
+ },
+ "5100:20": {
+  "_meta": {
+   "title": "Load LoRA"
+  },
+  "inputs": {
+   "model": [
+    "5100:79",
+    0
+   ],
+   "lora_name": "Qwen-Image-Lightning-8steps-V1.0.safetensors",
+   "strength_model": 1
+  },
+  "class_type": "LoraLoaderModelOnly"
+ },
+ "5100:22": {
+  "_meta": {
+   "title": "Load VAE"
+  },
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "5100:76": {
+  "_meta": {
+   "title": "Load CLIP"
+  },
+  "inputs": {
+   "type": "stable_diffusion",
+   "device": "default",
+   "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors"
+  },
+  "class_type": "CLIPLoader"
+ },
+ "5100:77": {
+  "_meta": {
+   "title": "Load Diffusion Model"
+  },
+  "inputs": {
+   "unet_name": "qwen_image_edit_2509_fp8_e4m3fn.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader"
+ },
+ "5100:79": {
+  "_meta": {
+   "title": "Load LoRA"
+  },
+  "inputs": {
+   "model": [
+    "5100:77",
+    0
+   ],
+   "lora_name": "Qwen-Edit-Relight.safetensors",
+   "strength_model": 1
+  },
+  "class_type": "LoraLoaderModelOnly"
+ },
+ "5200:10": {
+  "_meta": {
+   "title": "VAE Encode"
+  },
+  "inputs": {
+   "vae": [
+    "5100:22",
+    0
+   ],
+   "pixels": [
+    "5200:39",
+    0
+   ]
+  },
+  "class_type": "VAEEncode"
+ },
+ "5200:11": {
+  "_meta": {
+   "title": "TextEncodeQwenImageEditPlus"
+  },
+  "inputs": {
+   "vae": [
+    "5100:22",
+    0
+   ],
+   "clip": [
+    "5100:76",
+    0
+   ],
+   "image1": [
+    "5200:39",
+    0
+   ],
+   "prompt": "Remove the light and shadow, and relight the image using soft light (without obvious light spots and shadows)."
+  },
+  "class_type": "TextEncodeQwenImageEditPlus"
+ },
+ "5200:12": {
+  "_meta": {
+   "title": "VAE Decode"
+  },
+  "inputs": {
+   "vae": [
+    "5100:22",
+    0
+   ],
+   "samples": [
+    "5200:14",
+    0
+   ]
+  },
+  "class_type": "VAEDecode"
+ },
+ "5200:14": {
+  "_meta": {
+   "title": "KSampler"
+  },
+  "inputs": {
+   "cfg": 1,
+   "seed": 260028607325408,
+   "model": [
+    "5100:1",
+    0
+   ],
+   "steps": 8,
+   "denoise": 1,
+   "negative": [
+    "5200:3",
+    0
+   ],
+   "positive": [
+    "5200:11",
+    0
+   ],
+   "scheduler": "simple",
+   "latent_image": [
+    "5200:10",
+    0
+   ],
+   "sampler_name": "euler"
+  },
+  "class_type": "KSampler"
+ },
+ "5200:39": {
+  "_meta": {
+   "title": "ImageScaleToTotalPixels"
+  },
+  "inputs": {
+   "image": [
+    "31",
+    0
+   ],
+   "megapixels": 1,
+   "upscale_method": "lanczos",
+   "resolution_steps": 1
+  },
+  "class_type": "ImageScaleToTotalPixels"
+ },
+ "5200:60": {
+  "_meta": {
+   "title": "ImageSize"
+  },
+  "inputs": {
+   "image": [
+    "5200:39",
+    0
+   ]
+  },
+  "class_type": "easy imageSize"
+ }
+}

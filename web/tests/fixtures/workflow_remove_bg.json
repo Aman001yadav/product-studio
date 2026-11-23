@@ -1,0 +1,227 @@
+{
+ "461": {
+  "_meta": {
+   "title": "Save Image (Advanced)"
+  },
+  "inputs": {
+   "format": "png",
+   "images": [
+    "481",
+    0
+   ],
+   "filename_prefix": "Qwen_image_2.1",
+   "format.bit_depth": "8-bit",
+   "format.input_color_space": "sRGB"
+  },
+  "class_type": "SaveImageAdvanced"
+ },
+ "470": {
+  "_meta": {
+   "title": "Load Image"
+  },
+  "inputs": {
+   "image": "#community_inputs/qwen-image-2-1-for-backg-HK85onMd/ComfyUI_temp_pvidp_00001_.png"
+  },
+  "class_type": "LoadImage"
+ },
+ "472": {
+  "_meta": {
+   "title": "Image Compare"
+  },
+  "inputs": {
+   "image_a": [
+    "470",
+    0
+   ],
+   "image_b": [
+    "461",
+    0
+   ],
+   "compare_view": {
+    "afterImages": [
+     "https://cdn.floyo.ai/view/8daba957-229d-4551-8d8a-3068cc018b89?filename=comfy.compare.b_temp_tvbxm_00001_.png&subfolder=&type=temp&storageObjectId=630cc3b6-3fe2-4488-8cbb-88476a2747ab&rand=0.29887953241099996&cid=11d1d172-091c-43a0-b185-78f9a800ee05"
+    ],
+    "beforeImages": [
+     "https://cdn.floyo.ai/view/8daba957-229d-4551-8d8a-3068cc018b89?filename=comfy.compare.a_temp_tvbxm_00001_.png&subfolder=&type=temp&storageObjectId=1ba822ff-192c-47d2-9af3-f20755fe4c29&rand=0.29887953241099996&cid=11d1d172-091c-43a0-b185-78f9a800ee05"
+    ]
+   }
+  },
+  "class_type": "ImageCompare"
+ },
+ "477": {
+  "_meta": {
+   "title": "Load Diffusion Model"
+  },
+  "inputs": {
+   "unet_name": "qwen_image_2.1_int8_convrot.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader"
+ },
+ "478": {
+  "_meta": {
+   "title": "Load CLIP"
+  },
+  "inputs": {
+   "type": "qwen_image",
+   "device": "default",
+   "clip_name": "qwen3vl_8b_int8_convrot.safetensors"
+  },
+  "class_type": "CLIPLoader"
+ },
+ "479": {
+  "_meta": {
+   "title": "Load VAE"
+  },
+  "inputs": {
+   "vae_name": "qwen_image_2.1_vae_bf16.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "480": {
+  "_meta": {
+   "title": "Empty Latent Image"
+  },
+  "inputs": {
+   "width": 1024,
+   "height": 1024,
+   "batch_size": 1
+  },
+  "class_type": "EmptyLatentImage"
+ },
+ "481": {
+  "_meta": {
+   "title": "VAE Decode"
+  },
+  "inputs": {
+   "vae": [
+    "479",
+    0
+   ],
+   "samples": [
+    "482",
+    0
+   ]
+  },
+  "class_type": "VAEDecode"
+ },
+ "482": {
+  "_meta": {
+   "title": "KSampler"
+  },
+  "inputs": {
+   "cfg": 1,
+   "seed": 338077333386748,
+   "model": [
+    "484",
+    0
+   ],
+   "steps": 25,
+   "denoise": 1,
+   "negative": [
+    "485",
+    1
+   ],
+   "positive": [
+    "485",
+    0
+   ],
+   "scheduler": "simple",
+   "latent_image": [
+    "483",
+    0
+   ],
+   "sampler_name": "euler"
+  },
+  "class_type": "KSampler"
+ },
+ "483": {
+  "_meta": {
+   "title": "Switch"
+  },
+  "inputs": {
+   "switch": false,
+   "on_true": [
+    "480",
+    0
+   ],
+   "on_false": [
+    "485",
+    2
+   ]
+  },
+  "class_type": "ComfySwitchNode"
+ },
+ "484": {
+  "_meta": {
+   "title": "Qwen Image 2.1 Cache"
+  },
+  "inputs": {
+   "dtype": "default",
+   "model": [
+    "477",
+    0
+   ],
+   "device": "auto"
+  },
+  "class_type": "QwenImage21Cache"
+ },
+ "485": {
+  "_meta": {
+   "title": "Text Encode Qwen Image 2.1"
+  },
+  "inputs": {
+   "vae": [
+    "479",
+    0
+   ],
+   "clip": [
+    "478",
+    0
+   ],
+   "prompt": "Remove the background, and output a PNG image",
+   "resolution": 1024,
+   "images.image_1": [
+    "470",
+    0
+   ],
+   "negative_prompt": ""
+  },
+  "class_type": "TextEncodeQwenImage21"
+ },
+ "486": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "487": {
+  "_meta": {
+   "title": "Inputs you need"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "488": {
+  "_meta": {
+   "title": "Settings"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "489": {
+  "_meta": {
+   "title": "Qwen Image 2.1"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "490": {
+  "_meta": {
+   "title": "Learn"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ }
+}

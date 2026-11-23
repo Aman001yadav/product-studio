@@ -1,0 +1,90 @@
+{
+ "1": {
+  "_meta": {
+   "title": "Load Image (start frame)"
+  },
+  "inputs": {
+   "image": "#community_inputs/kling-v4-0-image-to-vi-1ifWmDy3/06f85f7a-f134-459a-97a1-a01a7f1d82d2.png"
+  },
+  "class_type": "LoadImage"
+ },
+ "3": {
+  "_meta": {
+   "title": "Save Video URL (Floyo Partner Nodes)"
+  },
+  "inputs": {
+   "filename": "Kling",
+   "video_url": [
+    "4",
+    0
+   ],
+   "output_dir": "Floyo_Model"
+  },
+  "class_type": "SaveVideoURL"
+ },
+ "4": {
+  "_meta": {
+   "title": "Kling v4.0 Image-to-Video (Floyo Partner Nodes)"
+  },
+  "inputs": {
+   "prompt": "A high-energy summer soda commercial. A young man runs toward the camera, holding a chilled watermelon soda can, as a massive splash of sparkling water erupts around him. He swings the can toward the lens, droplets flying in slow motion, then takes a refreshing sip and smiles. Dynamic camera tracking, extreme macro shots, rapid cinematic cuts, vibrant summer colors, dramatic sunlight, energetic movement, premium beverage advertising, Hollywood-style cinematography, ultra-realistic 4K.",
+   "duration": "5",
+   "resolution": "1080p",
+   "start_image": [
+    "1",
+    0
+   ],
+   "multi_prompt": ""
+  },
+  "class_type": "KlingV4ImageToVideo_floyo"
+ },
+ "5": {
+  "_meta": {
+   "title": "Save Video (Floyo)"
+  },
+  "inputs": {
+   "video_url": [
+    "4",
+    0
+   ],
+   "mp4_preview": true,
+   "filename_prefix": "video/Floyo"
+  },
+  "class_type": "DownloadVideo"
+ },
+ "6": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "7": {
+  "_meta": {
+   "title": "Inputs you need"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "8": {
+  "_meta": {
+   "title": "Settings"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "9": {
+  "_meta": {
+   "title": "Kling v4.0"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "10": {
+  "_meta": {
+   "title": "Learn"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ }
+}

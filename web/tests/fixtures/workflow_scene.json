@@ -1,0 +1,72 @@
+{
+ "67": {
+  "_meta": {
+   "title": "Seedream 5.5 Edit (Floyo Partner Nodes)"
+  },
+  "inputs": {
+   "width": 2048,
+   "height": 2048,
+   "image1": [
+    "68",
+    0
+   ],
+   "prompt": "Fast forward 500 years — the buildings are crumbling ruins overtaken by jungle, with massive trees growing through collapsed rooftops and vines draping the towers",
+   "watermark": false,
+   "background": "auto",
+   "resolution": "1K",
+   "aspect_ratio": "auto",
+   "floyo_text_0": "",
+   "output_format": "png"
+  },
+  "class_type": "SeedreamV55Edit_floyo"
+ },
+ "68": {
+  "_meta": {
+   "title": "Load Image"
+  },
+  "inputs": {
+   "image": "#community_inputs/seedream-5-5-for-image-e-gc_vEKa_/2026-11-19 21_29_16-Greenshot image editor.png"
+  },
+  "class_type": "LoadImage"
+ },
+ "69": {
+  "_meta": {
+   "title": "Preview Image"
+  },
+  "inputs": {
+   "images": [
+    "67",
+    0
+   ]
+  },
+  "class_type": "PreviewImage"
+ },
+ "70": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "71": {
+  "_meta": {
+   "title": "Inputs you need"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "73": {
+  "_meta": {
+   "title": "Seedream 5.5"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "75": {
+  "_meta": {
+   "title": "SETTINGS"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ }
+}

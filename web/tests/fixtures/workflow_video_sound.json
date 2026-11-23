@@ -1,0 +1,107 @@
+{
+ "52": {
+  "_meta": {
+   "title": "MMAudio v2 Video-to-Video (Floyo Partner Nodes)"
+  },
+  "inputs": {
+   "seed": 0,
+   "video": [
+    "53",
+    0
+   ],
+   "prompt": "Life in the city where people walking the street and tall   building along the way ",
+   "duration": 8,
+   "num_steps": 25,
+   "cfg_strength": 4.5,
+   "mask_away_clip": false,
+   "input_video_url": "",
+   "negative_prompt": ""
+  },
+  "class_type": "MMAudioV2VideoToVideo_floyo"
+ },
+ "53": {
+  "_meta": {
+   "title": "Load Video"
+  },
+  "inputs": {
+   "file": "#community_inputs/mmaudio-v2-add-sound-ef-F3TTF5Xb/City_Life_In_The_City_Centre_Of...  (no audio).mp4"
+  },
+  "class_type": "LoadVideo"
+ },
+ "54": {
+  "_meta": {
+   "title": "Video URL to Frames (Floyo)"
+  },
+  "inputs": {
+   "video_url": [
+    "52",
+    0
+   ]
+  },
+  "class_type": "VideoToFrames"
+ },
+ "55": {
+  "_meta": {
+   "title": "Create Video"
+  },
+  "inputs": {
+   "fps": [
+    "54",
+    2
+   ],
+   "audio": [
+    "54",
+    1
+   ],
+   "images": [
+    "54",
+    0
+   ],
+   "bit_depth": 8
+  },
+  "class_type": "CreateVideo"
+ },
+ "56": {
+  "_meta": {
+   "title": "Save Video"
+  },
+  "inputs": {
+   "codec": "auto",
+   "video": [
+    "55",
+    0
+   ],
+   "format": "auto",
+   "filename_prefix": "video/ComfyUI"
+  },
+  "class_type": "SaveVideo"
+ },
+ "57": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "58": {
+  "_meta": {
+   "title": "Inputs you need"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "59": {
+  "_meta": {
+   "title": "Settings"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "60": {
+  "_meta": {
+   "title": "Learn"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ }
+}

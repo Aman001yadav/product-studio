@@ -1,0 +1,125 @@
+{
+ "2": {
+  "_meta": {
+   "title": "Load Image"
+  },
+  "inputs": {
+   "image": "#inputs/ComfyUI_temp_xihhe_00001_ (1) (1).png"
+  },
+  "class_type": "LoadImage"
+ },
+ "3": {
+  "_meta": {
+   "title": "Resize Images by Longer Edge"
+  },
+  "inputs": {
+   "images": [
+    "2",
+    0
+   ],
+   "longer_edge": 1024
+  },
+  "class_type": "ResizeImagesByLongerEdge"
+ },
+ "4": {
+  "_meta": {
+   "title": "Load VAE"
+  },
+  "inputs": {
+   "vae_name": "ae.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "5": {
+  "_meta": {
+   "title": "VAE Encode"
+  },
+  "inputs": {
+   "vae": [
+    "4",
+    0
+   ],
+   "pixels": [
+    "3",
+    0
+   ]
+  },
+  "class_type": "VAEEncode"
+ },
+ "6": {
+  "_meta": {
+   "title": "PiD Text Prompt"
+  },
+  "inputs": {
+   "prompt": ""
+  },
+  "class_type": "PiDTextPrompt"
+ },
+ "7": {
+  "_meta": {
+   "title": "PiD Prepare"
+  },
+  "inputs": {
+   "scale": 4,
+   "sigma": 0,
+   "latent": [
+    "5",
+    0
+   ],
+   "caption": [
+    "6",
+    1
+   ],
+   "backbone": "flux",
+   "auto_download": true,
+   "pid_ckpt_type": "2kto4k",
+   "pid_source_dir": true,
+   "cleanup_after_prepare": "bf16"
+  },
+  "class_type": "PiDPrepare"
+ },
+ "8": {
+  "_meta": {
+   "title": "PiD Sample"
+  },
+  "inputs": {
+   "seed": 965064689,
+   "prepared": [
+    "7",
+    0
+   ],
+   "cfg_scale": 1,
+   "pid_steps": 4,
+   "aggressive_cleanup": true,
+   "sequential_offload": "auto_low_vram",
+   "pixel_chunk_patches": 0,
+   "pid_weight_precision": "fp32_compatible"
+  },
+  "class_type": "PiDSample"
+ },
+ "9": {
+  "_meta": {
+   "title": "PiD Finalize"
+  },
+  "inputs": {
+   "sampled": [
+    "8",
+    0
+   ]
+  },
+  "class_type": "PiDFinalize"
+ },
+ "10": {
+  "_meta": {
+   "title": "Save Image"
+  },
+  "inputs": {
+   "images": [
+    "9",
+    0
+   ],
+   "filename_prefix": "pid_image_to_image_2kto4k_complete"
+  },
+  "class_type": "SaveImage"
+ }
+}

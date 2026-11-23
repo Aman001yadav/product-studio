@@ -1,0 +1,92 @@
+{
+ "remove_bg": [
+  {
+   "file_name": "comfy.compare.b_temp_ebkak_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 811366
+  },
+  {
+   "file_name": "comfy.compare.a_temp_ebkak_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 12240
+  },
+  {
+   "file_name": "Qwen_image_2.1_00001.png",
+   "mime_type": "image/png",
+   "size_bytes": 599944
+  }
+ ],
+ "scene": [
+  {
+   "file_name": "ComfyUI_temp_pmver_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 1160288
+  }
+ ],
+ "relight": [
+  {
+   "file_name": "Qwen-Image_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 848214
+  }
+ ],
+ "expand": [
+  {
+   "file_name": "ComfyUI_00001.png",
+   "mime_type": "image/png",
+   "size_bytes": 1324464
+  },
+  {
+   "file_name": "ComfyUI_temp_uqqpa_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 836242
+  }
+ ],
+ "upscale": [
+  {
+   "file_name": "pid_image_to_image_2kto4k_complete_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 20406540
+  }
+ ],
+ "edit": [
+  {
+   "file_name": "ComfyUI_temp_stnlx_00001_.png",
+   "mime_type": "image/png",
+   "size_bytes": 1134788
+  }
+ ],
+ "music": [
+  {
+   "file_name": "ace_step1.5_xl_base_00001.mp3",
+   "mime_type": "audio/mpeg",
+   "size_bytes": 775712
+  }
+ ],
+ "video_sound": [
+  {
+   "file_name": "ComfyUI_00001_.mp4",
+   "mime_type": "application/mp4",
+   "size_bytes": 2468699
+  }
+ ],
+ "video_edit": [
+  {
+   "file_name": "Floyo_00004_.mp4",
+   "mime_type": "application/mp4",
+   "size_bytes": 1844688
+  }
+ ],
+ "animate": [
+  {
+   "file_name": "Floyo_00001_.mp4",
+   "mime_type": "application/mp4",
+   "size_bytes": 3654421
+  },
+  {
+   "file_name": "Kling_20261123_062006.txt",
+   "mime_type": "text/plain",
+   "size_bytes": 71
+  }
+ ]
+}

@@ -1,0 +1,170 @@
+{
+ "3": {
+  "_meta": {
+   "title": "KSampler"
+  },
+  "inputs": {
+   "cfg": 6,
+   "seed": [
+    "109",
+    0
+   ],
+   "model": [
+    "78",
+    0
+   ],
+   "steps": 50,
+   "denoise": 1,
+   "negative": [
+    "47",
+    0
+   ],
+   "positive": [
+    "94",
+    0
+   ],
+   "scheduler": "simple",
+   "latent_image": [
+    "98",
+    0
+   ],
+   "sampler_name": "euler"
+  },
+  "class_type": "KSampler"
+ },
+ "18": {
+  "_meta": {
+   "title": "VAE Decode Audio"
+  },
+  "inputs": {
+   "vae": [
+    "106",
+    0
+   ],
+   "samples": [
+    "3",
+    0
+   ]
+  },
+  "class_type": "VAEDecodeAudio"
+ },
+ "47": {
+  "_meta": {
+   "title": "ConditioningZeroOut"
+  },
+  "inputs": {
+   "conditioning": [
+    "94",
+    0
+   ]
+  },
+  "class_type": "ConditioningZeroOut"
+ },
+ "78": {
+  "_meta": {
+   "title": "ModelSamplingAuraFlow"
+  },
+  "inputs": {
+   "model": [
+    "104",
+    0
+   ],
+   "shift": 3
+  },
+  "class_type": "ModelSamplingAuraFlow"
+ },
+ "94": {
+  "_meta": {
+   "title": "TextEncodeAceStepAudio1.5"
+  },
+  "inputs": {
+   "bpm": 150,
+   "clip": [
+    "105",
+    0
+   ],
+   "seed": [
+    "109",
+    0
+   ],
+   "tags": "\"Kidou Kaishi\" (System Online) (instrumental)\nStyle: Cinematic mecha anime launch theme, starts with pulsing electronic countdown, builds through synth arpeggios and industrial percussion, erupts into heroic orchestral brass and choir with distorted guitar, instrumental, E minor, 150 BPM",
+   "min_p": 0,
+   "top_k": 0,
+   "top_p": 0.9,
+   "lyrics": "[Intro]\n(Pulsing synth, radio chatter: system online)\n[Build]\n(Arpeggio rising, drums enter)\n[Drop]\n(Full orchestra, choir: \"Aaah!\" guitar, taiko)\n[Breakdown]\n(Synth melody over quiet strings)\n[Final Drop]\n(Full arrangement, triumphant brass)\n[Outro]\n(Engine roar, choir fade)",
+   "duration": 120,
+   "keyscale": "E minor",
+   "language": "en",
+   "cfg_scale": 2,
+   "temperature": 0.85,
+   "timesignature": "4",
+   "generate_audio_codes": true
+  },
+  "class_type": "TextEncodeAceStepAudio1.5"
+ },
+ "98": {
+  "_meta": {
+   "title": "Empty Ace Step 1.5 Latent Audio"
+  },
+  "inputs": {
+   "seconds": 120,
+   "batch_size": 1
+  },
+  "class_type": "EmptyAceStep1.5LatentAudio"
+ },
+ "104": {
+  "_meta": {
+   "title": "Load Diffusion Model"
+  },
+  "inputs": {
+   "unet_name": "acestep_v1.5_xl_base_bf16.safetensors",
+   "weight_dtype": "default"
+  },
+  "class_type": "UNETLoader"
+ },
+ "105": {
+  "_meta": {
+   "title": "DualCLIPLoader"
+  },
+  "inputs": {
+   "type": "ace",
+   "device": "default",
+   "clip_name1": "qwen_0.6b_ace15.safetensors",
+   "clip_name2": "qwen_4b_ace15.safetensors"
+  },
+  "class_type": "DualCLIPLoader"
+ },
+ "106": {
+  "_meta": {
+   "title": "Load VAE"
+  },
+  "inputs": {
+   "vae_name": "ace_1.5_vae.safetensors"
+  },
+  "class_type": "VAELoader"
+ },
+ "107": {
+  "_meta": {
+   "title": "Save Audio (MP3)"
+  },
+  "inputs": {
+   "audio": [
+    "18",
+    0
+   ],
+   "audioUI": "/view/3a7d3ec2-6cc7-4bba-a71b-05d3b9f1cb10/?filename=ace_step1.5_xl_base_00001_.mp3&type=output&subfolder=audio&rand=0.17585282966007287",
+   "quality": "V0",
+   "filename_prefix": "audio/ace_step1.5_xl_base"
+  },
+  "class_type": "SaveAudioMP3"
+ },
+ "109": {
+  "_meta": {
+   "title": "Int"
+  },
+  "inputs": {
+   "value": 0
+  },
+  "class_type": "PrimitiveInt"
+ }
+}

@@ -1,0 +1,69 @@
+{
+ "67": {
+  "_meta": {
+   "title": "GPT Image 2.6 Flare Edit (Floyo Partner Nodes)"
+  },
+  "inputs": {
+   "width": 1024,
+   "height": 1024,
+   "image1": [
+    "68",
+    0
+   ],
+   "prompt": "Flood the bottom floors with crystal-clear turquoise water, with fish swimming between the submerged railings",
+   "quality": "high",
+   "background": "auto",
+   "image_size": "auto",
+   "num_images": 1,
+   "frame_count": 9,
+   "floyo_text_0": "https://v3b.fal.media/files/b/0ab2b3e5/qKiRx-No_vPZuwA1tG9kj_mg0a4EuZ.png",
+   "output_format": "png",
+   "reasoning_effort": "high",
+   "frame_duration_ms": 200,
+   "output_compression": 0
+  },
+  "class_type": "GPTImage26FlareEdit_floyo"
+ },
+ "68": {
+  "_meta": {
+   "title": "Load Image"
+  },
+  "inputs": {
+   "image": "#community_inputs/gpt-image-2-6-flare-edit-POZwmiY2/2026-11-16 21_11_34-Downloads - File Explorer.png"
+  },
+  "class_type": "LoadImage"
+ },
+ "69": {
+  "_meta": {
+   "title": "Preview Image"
+  },
+  "inputs": {
+   "images": [
+    "67",
+    0
+   ]
+  },
+  "class_type": "PreviewImage"
+ },
+ "70": {
+  "_meta": {
+   "title": "About the workflow"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "73": {
+  "_meta": {
+   "title": "GPT Image 2.6 Flare"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ },
+ "75": {
+  "_meta": {
+   "title": "SETTINGS"
+  },
+  "inputs": {},
+  "class_type": "FloyoStickyNote"
+ }
+}
